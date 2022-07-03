@@ -2,16 +2,17 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+
 import { styled } from '@mui/material/styles';
 import { RangeSelector } from './RangeSelector';
 import { SectionSelector } from './SectionSelector';
 import { Video } from '../types';
 import { useQueryVideos } from '../apis';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { css } from '@emotion/css';
+
 const Container = styled(Box)`
   padding: 20px;
 `;

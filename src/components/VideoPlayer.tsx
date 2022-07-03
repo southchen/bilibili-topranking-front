@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Video } from '../types';
 import { css } from '@emotion/css';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
 export const VideoPlayer: React.FC<{ video?: Video }> = ({ video }) => {
   if (!video)

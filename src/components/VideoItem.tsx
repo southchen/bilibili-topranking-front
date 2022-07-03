@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { css } from '@emotion/css';
-import { ListItem } from '@mui/material';
+import ListItem from '@mui/material/ListItem';
 
 export const VideoItem: React.FC<{
   video: Video;
