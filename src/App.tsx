@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { SearchArea } from './components/SearchArea';
+import { Video } from './types';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import { VideoDisplay } from './components/VideoDisplay';
+import CircularProgress from '@mui/material/CircularProgress';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
+  const [data, setData] = React.useState<Video[]>();
+  const [selectedVideo, setSelectedVideo] = React.useState<Video>();
+  const [loading, setLoading] = React.useState(false);
+  console.log(data);
+  console.log({ loading });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <SearchArea setData={setData} setLoading={setLoading} />
+      {!loading ? (
+        <VideoDisplay
+          videos={data}
+          onVideoSelect={setSelectedVideo}
+          video={selectedVideo}
+        />
+      ) : (
+        <CircularProgress />
+      )}
+    </QueryClientProvider>
   );
 }
 
